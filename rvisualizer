@@ -1,0 +1,21 @@
+#!/bin/bash
+
+RIMG_DIR=""
+
+while IFS= read -r dir; do
+
+    if [ -f "$dir/RVisualizer/main.py" ]; then
+        RIMG_DIR="$dir"
+        break
+    fi
+
+done < <(find "$HOME" -type d -name "RIMG" 2>/dev/null)
+
+if [ -z "$RIMG_DIR" ]; then
+    echo "RIMG folder not found"
+    exit 1
+fi
+
+MAIN="$RIMG_DIR/RVisualizer/main.py"
+
+exec python "$MAIN"
