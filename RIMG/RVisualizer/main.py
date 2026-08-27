@@ -708,6 +708,10 @@ class RVisualizer:
         if not output:
             return
 
+        # Garante que a extensão correta está no final do arquivo
+        if not output.lower().endswith(".rimg"):
+            output += ".rimg"
+
         try:
 
             png_to_rimg(
@@ -744,6 +748,10 @@ class RVisualizer:
 
         if not output:
             return
+
+        # Garante que a extensão correta está no final do arquivo
+        if not output.lower().endswith(".png"):
+            output += ".png"
 
         try:
 
